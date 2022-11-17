@@ -46,43 +46,79 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1.Open a new project using Quartus II.
 
+2.Declare the inputs and outputs inside module projname(). 
+
+3.Set the reset value using register. 
+
+4.Use commands like begin and end to stimulate the counter. 
+
+5.For Up counter increment the count and for Down counter decrement the count. 
+
+6.End the verilog programming.
 
 
 ### PROGRAM 
-/*
+~~~
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-
+Developed by: Ranjith D
+RegisterNumber: 212221240044
+~~~
+#### Up counter
+~~~
+module UC(input clk,input reset,output[0:3]counter);
+reg[0:3]counter_up;
+always@(posedge clk or posedge reset)
+begin
+if (reset)
+counter_up<=4'd0;
+else 
+counter_up<=counter_up+4'd1;
+end
+assign counter=counter_up;
+endmodule
+~~~
+#### Down counter
+~~~
+module ex06(input clk,input reset,output[0:3]counter);
+reg[0:3]counter_down;
+always@(posedge clk or posedge reset)
+begin
+if (reset)
+counter_down<=4'd0;
+else 
+counter_down<=counter_down-4'd1;
+end
+assign counter=counter_down;
+endmodule
+~~~
 
 
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-
-
-
-
-
-
-
-
+#### Up counter
+![](https://github.com/Akash020803/Exp-7-Synchornous-counters-/blob/main/pic3.png)
+#### Down counter
+![](https://github.com/Akash020803/Exp-7-Synchornous-counters-/blob/main/drt.jpeg)
 
 ### TIMING DIGRAMS FOR COUNTER  
-
-
-
-
-
+#### Up counter
+##### With reset = 0
+![](https://github.com/Akash020803/Exp-7-Synchornous-counters-/blob/main/uptiming0.png)
+##### With reset = 1
+![](https://github.com/Akash020803/Exp-7-Synchornous-counters-/blob/main/uptiming1.png)
+#### Down counter
+##### With reset = 0
+![](https://github.com/Akash020803/Exp-7-Synchornous-counters-/blob/main/dtruth1.jpeg)
+##### With reset = 1
+![](https://github.com/Akash020803/Exp-7-Synchornous-counters-/blob/main/dtruth2.jpeg)
 ### TRUTH TABLE 
-
-
-
-
-
-
+#### Up counter
+![](https://github.com/Akash020803/Exp-7-Synchornous-counters-/blob/main/upct.jpg)
+#### Down counter
+![](https://github.com/Akash020803/Exp-7-Synchornous-counters-/blob/main/dct.jpg)
 ### RESULTS 
+Hence the Four bit Up counter and Down counter is implemented successfully and its functionality is validated.
